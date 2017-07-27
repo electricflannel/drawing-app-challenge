@@ -15,10 +15,17 @@ export default function tools(state = initialState, action) {
 			})
 
 		case SELECT_TOOL:
-			return Object.assign({}, state, {
-				tool: action.text
-			})
-
+			if(action.text === 'ERASER') {
+				return Object.assign({}, state, {
+					tool: action.text,
+					brush_color: '#ffffff'
+				})
+			} else {
+				return Object.assign({}, state, {
+					tool: action.text,
+				})
+			}
+			
 		case CHANGE_COLOR:
 			return Object.assign({}, state, {
 				brush_color: action.text

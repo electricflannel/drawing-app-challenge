@@ -24,8 +24,9 @@ export default function ToolSelector(props) {
 			<div className="radio">
 				<input type="radio" name="tool" id="eraser-select"
 					value={ERASER} 
-					checked={tool === ERASER} 
-					onChange={ (e) => { action(e.target.value) } } />
+					checked={tool === ERASER}
+					onChange={ (e) => { 
+						action(e.target.value);} } />
 				<label htmlFor="eraser-select">Eraser</label>
 			</div>
 		</div>

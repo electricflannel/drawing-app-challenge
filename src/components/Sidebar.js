@@ -14,6 +14,7 @@ export default class Sidebar extends Component {
 					<ToolSelector
 						tool={ tools.tool }
 						action={ actions.selectTool }
+						brush_color={ brush_color }
 					/>
 				</section>
 
@@ -31,6 +32,11 @@ export default class Sidebar extends Component {
 					brush_color={ brush_color }
 					action={ actions.changeColor }
 				/>
+				</section>
+
+				<section className="section">
+				<h3 className="section__heading">Image Stamp</h3>
+				<input type="file" />
 				</section>
 
 				<section className="section">
