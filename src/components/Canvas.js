@@ -30,6 +30,10 @@ export default class Canvas extends Component {
 		}
 	}
 
+	resetCanvas() {
+		return ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
+	}
+
 	getX(event) {
 		if (event.pageX === undefined) {
 			return event.targetTouches[0].pageX - this.refs.canvas.offsetLeft;
