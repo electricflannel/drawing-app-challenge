@@ -23,6 +23,19 @@ export default class Sidebar extends Component {
 						action={ actions.changeSize }
 					/>
 				</section>
+
+				<section className="section">
+				<h3 className="section__heading">Brush Color</h3>
+				</section>
+
+				<section className="section">
+				<h3 className="section__heading">Reset</h3>
+				</section>
+
+				<section className="section">
+				<h3 className="section__heading">Save</h3>
+				</section>
+
 			</div>
 		)
 	}
