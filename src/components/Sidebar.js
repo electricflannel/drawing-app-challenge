@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import ToolSelector from "./ToolSelector";
 import BrushSize from "./BrushSize";
+import BrushColor from './BrushColor';
 
 export default class Sidebar extends Component {
 	render() {
 		const { tools, actions } = this.props;
-		const { brush_size } = tools;
+		const { brush_size, brush_color } = tools;
 		return (
 			<div className="sidebar">
 				<section className="section section--tool-selector">
@@ -26,7 +27,10 @@ export default class Sidebar extends Component {
 
 				<section className="section">
 				<h3 className="section__heading">Brush Color</h3>
-				<input type="color" />
+				<BrushColor 
+					brush_color={ brush_color }
+					action={ actions.changeColor }
+				/>
 				</section>
 
 				<section className="section">

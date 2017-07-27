@@ -1,15 +1,13 @@
 import React, { PropTypes } from "react";
 
 export default function BrushSize(props) {
-	const { action, brush_size } = props;
+	const { action, brush_color } = props;
 	return (
 		<input
-			type="number"
-			className="number-input"
-			defaultValue={brush_size}
+			type="color"
+			defaultValue={brush_color}
 			onChange={ (e) => {
 				action(e.target.value)
-				console.log(e.target.value)
 			}}
 		/>
 	);
