@@ -26,6 +26,7 @@ export default class Sidebar extends Component {
 
 				<section className="section">
 				<h3 className="section__heading">Brush Color</h3>
+				<input type="color" />
 				</section>
 
 				<section className="section">
@@ -34,6 +35,7 @@ export default class Sidebar extends Component {
 
 				<section className="section">
 				<h3 className="section__heading">Save</h3>
+
 				</section>
 
 			</div>

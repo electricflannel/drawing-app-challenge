@@ -3,7 +3,8 @@ import { BRUSH } from "../constants/Tools";
 
 const initialState = {
 	tool: BRUSH,
-	brush_size: "10"
+	brush_size: "10",
+	brush_color: '#BADA55'
 }
 
 export default function tools(state = initialState, action) {
