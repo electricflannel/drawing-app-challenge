@@ -14,7 +14,6 @@ export default class Sidebar extends Component {
 					<ToolSelector
 						tool={ tools.tool }
 						action={ actions.selectTool }
-						brush_color={ brush_color }
 					/>
 				</section>
 

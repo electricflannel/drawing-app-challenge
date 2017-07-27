@@ -4,7 +4,9 @@ import { BRUSH } from "../constants/Tools";
 const initialState = {
 	tool: BRUSH,
 	brush_size: "10",
-	brush_color: '#BADA55'
+	brush_color: '#BADA55',
+	isEraser: false,
+	isStamp: false
 }
 
 export default function tools(state = initialState, action) {
@@ -18,14 +20,16 @@ export default function tools(state = initialState, action) {
 			if(action.text === 'ERASER') {
 				return Object.assign({}, state, {
 					tool: action.text,
-					brush_color: '#ffffff'
+					isEraser: true
 				})
 			} else {
 				return Object.assign({}, state, {
 					tool: action.text,
+					isEraser: false
 				})
 			}
 			
+
 		case CHANGE_COLOR:
 			return Object.assign({}, state, {
 				brush_color: action.text

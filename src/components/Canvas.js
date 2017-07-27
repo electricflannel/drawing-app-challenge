@@ -23,7 +23,11 @@ export default class Canvas extends Component {
 	}
 
 	getColor() {
-		return this.props.tools.brush_color;
+		if (this.props.tools.isEraser) {
+			return '#FFFFFF'
+		} else {
+			return this.props.tools.brush_color;
+		}
 	}
 
 	getX(event) {
