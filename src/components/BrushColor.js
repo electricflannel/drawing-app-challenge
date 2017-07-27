@@ -14,6 +14,6 @@ export default function BrushSize(props) {
 }
 
 BrushSize.propTypes = {
-	brush_size: PropTypes.string.isRequired,
+	brush_color: PropTypes.string.isRequired,
 	action: PropTypes.func.isRequired
 };

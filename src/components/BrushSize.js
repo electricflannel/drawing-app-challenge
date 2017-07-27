@@ -9,7 +9,6 @@ export default function BrushSize(props) {
 			defaultValue={brush_size}
 			onChange={ (e) => {
 				action(e.target.value)
-				console.log(e.target.value)
 			}}
 		/>
 	);
