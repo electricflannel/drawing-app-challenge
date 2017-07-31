@@ -8,7 +8,7 @@ import ResetCanvas from './ResetCanvas'
 export default class Sidebar extends Component {
 	render() {
 		const { tools, actions } = this.props;
-		const { brush_size, brush_color, image_file, image_preview } = tools;
+		const { brush_size, brush_color, image, image_url } = tools;
 		return (
 			<div className="sidebar">
 				<section className="section section--tool-selector">
@@ -38,8 +38,8 @@ export default class Sidebar extends Component {
 				<section className="section">
 				<h3 className="section__heading">Image Stamp</h3>
 				<ImageStamp 
-					image_file={image_file}
-					image_preview={image_preview}
+					image={image}
+					image_url={image_url}
 					action={ actions.setImageStamp }
 				/>
 				</section>

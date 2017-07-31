@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from "react";
-import { BRUSH, ERASER } from "../constants/Tools";
+import { BRUSH, ERASER, STAMP } from "../constants/Tools";
 
 let ctx;
 
@@ -23,10 +23,18 @@ export default class Canvas extends Component {
 	}
 
 	getColor() {
-		if (this.props.tools.isEraser) {
+		if (this.props.tools.tool === ERASER) {
 			return '#FFFFFF'
+		} else if (this.props.tools.tool === STAMP) {
+			return
 		} else {
 			return this.props.tools.brush_color;
+		}
+	}
+
+	getStamp() {
+		if (this.props.tools.tool === STAMP) {
+			console.log("stamp is working")
 		}
 	}
 
@@ -62,14 +70,26 @@ export default class Canvas extends Component {
 	}
 
 	draw(event) {
-		if (this.isDrawing) {
+		if (this.isDrawing && !(this.props.tools.tool === STAMP)) {
 			ctx.lineTo(this.getX(event), this.getY(event));
 			ctx.lineWidth = this.getStroke();
 			ctx.strokeStyle = this.getColor()
 			ctx.lineCap = "round";
 			ctx.lineJoin = "round";
-			ctx.stroke();
+			ctx.stroke()
+		} 
+
+		if (this.isDrawing && this.props.tools.tool === STAMP) {
+			console.log('Cheese')
 		}
+		// else {
+		// 	let imageObj = new Image();
+			
+		// 	imageObj.onload = (event) => {
+  //      ctx.drawImage(imageObj, this.getX(event), this.getY(event));
+
+		// 	imageObj.src = "http://via.placeholder.com/50x50"
+		// }
 		event.preventDefault();
 	}
 

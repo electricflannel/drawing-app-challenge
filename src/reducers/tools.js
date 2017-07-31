@@ -4,9 +4,9 @@ import { BRUSH } from "../constants/Tools";
 const initialState = {
 	tool: BRUSH,
 	brush_size: "10",
-	brush_color: '#BADA55',
+	brush_color: '#C0FFEE',
+	image: '',
 	image_file: '',
-	image_preview: '',
 	isEraser: false,
 	isStamp: false
 }
@@ -19,32 +19,15 @@ export default function tools(state = initialState, action) {
 			})
 
 		case SET_IMAGE_STAMP:
-			console.log(action.text)
 			return Object.assign({}, state, {
 				image_file: action.file,
-				image_preview: action.urlPreview
+				image: action.url
 			})
 
 		case SELECT_TOOL:
-			if(action.text === 'ERASER') {
-				return Object.assign({}, state, {
-					tool: action.text,
-					isEraser: true,
-					isStamp: false
-				})
-			} else if (action.text === 'STAMP') {
-				return Object.assign({}, state, {
-					tool: action.text,
-					isEraser: false,
-					isStamp: true
-				})
-			} else {
-				return Object.assign({}, state, {
-					tool: action.text,
-					isEraser: false,
-					isStamp: false
-				})
-			}
+			return Object.assign({}, state, {
+				tool: action.text,
+			})
 			
 		case CHANGE_COLOR:
 			return Object.assign({}, state, {
