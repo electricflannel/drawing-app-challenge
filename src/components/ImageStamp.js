@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function ImageStamp(props) {
-	const { action, image, image_url } = props;
+	const { action, image } = props;
 	
 	const handleImageSubmit = (e) => {
 		e.preventDefault()
@@ -11,7 +11,7 @@ export default function ImageStamp(props) {
 		reader.readAsDataURL(file)
 
 		reader.onloadend = () => {
-			action(file, image_url)
+			action(file, reader.result)
 		}
 
 		
@@ -25,7 +25,7 @@ export default function ImageStamp(props) {
 				handleImageSubmit(e)
 			}}
 			/>
-			<img className='image_stamp_preview' src={image_url} />
+			<img className='image_stamp_preview' alt="stamp preview" src={image} />
 		</div>
 	)
 }

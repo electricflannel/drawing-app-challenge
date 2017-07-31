@@ -33,8 +33,15 @@ export default class Canvas extends Component {
 	}
 
 	getStamp() {
-		if (this.props.tools.tool === STAMP) {
-			console.log("stamp is working")
+
+		if (this.isDrawing && this.props.tools.tool === STAMP) {
+			let img = new Image();
+	
+			img.onload = () => {
+				ctx.drawImage(img, 10, 10)
+			}
+			img.src = this.props.tools.image
+
 		}
 	}
 
@@ -66,6 +73,25 @@ export default class Canvas extends Component {
 			ctx.beginPath();
 			ctx.moveTo(this.getX(event), this.getY(event));
 			event.preventDefault();
+			console.log(`x axis: ${this.getX(event)}, y axis: ${this.getY(event)}`)
+		}
+
+
+
+		if (this.props.tools.tool === STAMP) {
+			// This synthetic event is reused for performance reasons. If you're seeing this, you're accessing the method `pageX` on a released/nullified synthetic event. This is a no-op function. If you must keep the original synthetic event around, use event.persist().
+			// Had to add event.persist to prevent this error
+			event.persist()
+			let img = new Image();
+			
+			//TODO: correct for image stamp at top cornter
+			img.onload = () => {
+				ctx.drawImage(img, this.getX(event) - 75, this.getY(event) - ((150 * img.height / img.width) / 2), 150, 150 * img.height / img.width)
+			}
+			console.dir(img)
+			img.src = this.props.tools.image
+			img.className = "image-stamp"
+
 		}
 	}
 
@@ -77,19 +103,7 @@ export default class Canvas extends Component {
 			ctx.lineCap = "round";
 			ctx.lineJoin = "round";
 			ctx.stroke()
-		} 
-
-		if (this.isDrawing && this.props.tools.tool === STAMP) {
-			console.log('Cheese')
 		}
-		// else {
-		// 	let imageObj = new Image();
-			
-		// 	imageObj.onload = (event) => {
-  //      ctx.drawImage(imageObj, this.getX(event), this.getY(event));
-
-		// 	imageObj.src = "http://via.placeholder.com/50x50"
-		// }
 		event.preventDefault();
 	}
 

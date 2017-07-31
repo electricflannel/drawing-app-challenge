@@ -5,6 +5,7 @@ const initialState = {
 	tool: BRUSH,
 	brush_size: "10",
 	brush_color: '#C0FFEE',
+	//TODO: refactor image and image_file.  No longer need image
 	image: '',
 	image_file: '',
 	isEraser: false,
