@@ -5,11 +5,7 @@ const initialState = {
 	tool: BRUSH,
 	brush_size: "10",
 	brush_color: '#C0FFEE',
-	//TODO: refactor image and image_file.  No longer need image
-	image: '',
-	image_file: '',
-	isEraser: false,
-	isStamp: false
+	image: ''
 }
 
 export default function tools(state = initialState, action) {
@@ -21,7 +17,6 @@ export default function tools(state = initialState, action) {
 
 		case SET_IMAGE_STAMP:
 			return Object.assign({}, state, {
-				image_file: action.file,
 				image: action.url
 			})
 
