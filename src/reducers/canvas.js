@@ -1,7 +1,8 @@
 import {RESET_CANVAS} from "../constants/ActionTypes";
 
 const initialState = {
-    clear_canvas: false
+    clear_canvas: false,
+    save_canvas: false
 }
 
 export default function canvas(state = initialState, action) {
@@ -10,6 +11,10 @@ export default function canvas(state = initialState, action) {
             return Object.assign({}, state, {
                 clear_canvas: action.bool
             })
+        // case SAVE_CANVAS:
+        //     return Object.assign({}, state, {
+        //         clear_canvas: action.bool
+        //     })
         default:
             return state
     }
