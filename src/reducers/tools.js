@@ -10,6 +10,7 @@ const initialState = {
 
 export default function tools(state = initialState, action) {
 	switch (action.type) {
+		
 		case CHANGE_SIZE:
 			return Object.assign({}, state, {
 				brush_size: action.text

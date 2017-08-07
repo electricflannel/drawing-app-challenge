@@ -112,6 +112,11 @@ export default class Canvas extends Component {
 			ctx.closePath();
 			this.isDrawing = false;
 		}
+	let dataURL = document
+					.querySelector('.canvas')
+					.toDataURL();
+		
+		this.props.actions.saveCanvas(dataURL)
 		event.preventDefault();
 	}
 
