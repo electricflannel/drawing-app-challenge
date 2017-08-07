@@ -33,7 +33,6 @@ export default class Canvas extends Component {
 	}
 
 	getStamp() {
-
 		if (this.isDrawing && this.props.tools.tool === STAMP) {
 			let img = new Image();
 
@@ -41,6 +40,16 @@ export default class Canvas extends Component {
 				ctx.drawImage(img, 10, 10)
 			}
 			img.src = this.props.tools.image
+		}
+	}
+
+	getCanvasState() {
+		if(document.querySelector('.canvas')) {
+			let dataURL = document
+						.querySelector('.canvas')
+						.toDataURL('image/png');
+
+			open().document.write(`<img src="${dataURL}" />`);
 		}
 	}
 
@@ -92,6 +101,11 @@ export default class Canvas extends Component {
 		if(this.props.canvas.clear_canvas) {
 			this.props.actions.resetCanvas(false)
 		}
+
+		// NOTE: sets save_canvas back to false when user draws again
+		if(this.props.canvas.save_canvas) {
+			this.props.actions.saveCanvas(false)
+		}
 	}
 
 	draw(event) {
@@ -112,19 +126,20 @@ export default class Canvas extends Component {
 			ctx.closePath();
 			this.isDrawing = false;
 		}
-	let dataURL = document
-					.querySelector('.canvas')
-					.toDataURL();
-		
-		this.props.actions.saveCanvas(dataURL)
 		event.preventDefault();
 	}
 
 	render() {
 		
+		// NOTE: Calls clear_canvas or save_canvas on state change
 		if (this.props.canvas.clear_canvas) {
 			this.resetCanvas()
 		}
+
+		if(this.props.canvas.save_canvas) {
+			this.getCanvasState()
+		}
+
 		
 		return (
 			<canvas

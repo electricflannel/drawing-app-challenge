@@ -16,6 +16,7 @@ const App = ({tools, actions, canvas }) => (
 		<Sidebar
 			tools={tools}
 			actions={actions}
+			canvas={canvas}
 		/>
 	</div>
 )
