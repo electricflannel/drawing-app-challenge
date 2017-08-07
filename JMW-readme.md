@@ -13,3 +13,7 @@ https://stackoverflow.com/questions/10841532/canvas-drawimage-scalings
 
 https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
 
+
+
+http://eugeneware.com/software-development/converting-base64-datauri-strings-into-blobs-or-typed-array
+

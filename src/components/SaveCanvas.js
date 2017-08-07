@@ -1,9 +1,7 @@
 import React from "react";
 
 export default function SaveCanvas(props) {
-    const { canvas_state, action } = props;
-
-    // NOTE: Base 64 doesn't allow user to Save As
+    const { action } = props;
 
     return (<input
         type="button"

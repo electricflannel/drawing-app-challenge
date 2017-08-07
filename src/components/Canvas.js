@@ -43,13 +43,33 @@ export default class Canvas extends Component {
 		}
 	}
 
-	getCanvasState() {
-		if(document.querySelector('.canvas')) {
-			let dataURL = document
-						.querySelector('.canvas')
-						.toDataURL('image/png');
+	convertDataURIToBinaryFetch(dataURI) {
+		return fetch(dataURI)
+			.then((res) => res.blob());
+	}
 
-			open().document.write(`<img src="${dataURL}" />`);
+	getCanvasState() {
+		// NOTE: Both of these work, there is an issue with being able to right
+		// click the exported image and "Save image as"
+
+
+		// if(document.querySelector('.canvas')) {
+		// 	let dataURL = document
+		// 				.querySelector('.canvas')
+		// 				.toDataURL('image/png');
+
+		// 	open().document.write(`<img src="${dataURL}" />`);
+		// }
+
+
+		if(document.querySelector('.canvas')) {
+			let canvas = document.querySelector('.canvas')
+			
+			canvas.toBlob((blob) => {
+				let img = new Image()
+				img.src = window.URL.createObjectURL(blob)
+				open().document.body.appendChild(img);
+			})
 		}
 	}
 
