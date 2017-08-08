@@ -1,0 +1,133 @@
+:root {
+	--main-font-color: #222222;
+	--main-btn-grad-light-color: #a7a7a7;
+	--main-btn-grad-dark-color: #818181;
+	--main-btn-border-color: #d3d3d3;
+	--main-box-shadow-color: black;
+	--main-section-heading-color: #333333;
+	--main-section-break-color: #494949;
+}
+
+/* ************************* Sidebar ************************* */
+
+.section {
+	padding: 5px 5px 0 5px;
+}
+
+.section:not(:first-child) {
+	border-top: var(--main-section-break-color) 2px solid;
+}
+
+.section__heading {
+	color: var(--main-section-heading-color);
+	text-transform: uppercase;
+}
+
+.SaveCanvas__button,
+.ResetCanvas__button,
+.ToolSelector__label,
+.ImageStamp__button {
+	background: #a7a7a7;
+	background-image: -moz-linear-gradient(top, var(--main-btn-grad-light-color), var(--main-btn-grad-dark-color));
+	background-image: linear-gradient(to bottom, var(--main-btn-grad-light-color), var(--main-btn-grad-dark-color));
+	-moz-border-radius: 5;
+	border-radius: 5px;
+	color: var(--main-font-color);
+	padding: 5px;
+	border: solid var(--main-btn-border-color) 2px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+.SaveCanvas__button:hover,
+.ResetCanvas__button:hover,
+.ToolSelector__label:hover,
+.ImageStamp__button:hover {
+	box-shadow: 0px 0px 0px 2px black;
+}
+
+.SaveCanvas__button:active,
+.ResetCanvas__button:active,
+.ToolSelector__label:active,
+.ImageStamp__button:active {
+	background-image: -moz-linear-gradient(top, var(--main-btn-grad-dark-color), var(--main-btn-grad-light-color));
+	background-image: linear-gradient(to bottom, var(--main-btn-grad-dark-color), var(--main-btn-grad-light-color));
+}
+
+
+.SaveCanvas__button,
+.ResetCanvas__button,
+.ImageStamp__button,
+.BrushColor__input {
+	margin-top: 5px;
+}
+
+/* ************************* ToolSelector Component ************************* */
+
+.ToolSelector__container {
+	margin-top: 10px;
+	display: flex;
+}
+
+ .radio > label {
+	margin: 3px;
+} 
+
+ .radio > input[type=radio]:not(old)  {
+	display: none;
+	margin  : 0;
+	padding : 0;
+	opacity : 0;
+}  
+
+ .radio > input[type=radio]:not(old):checked + label  {
+	content: "";
+	z-index:-1;
+	box-shadow: 0px 0px 0px 2px var(--main-box-shadow-color);
+	background-image: -moz-linear-gradient(top, var(--main-btn-grad-dark-color), var(--main-btn-grad-light-color));
+	background-image: linear-gradient(to bottom, var(--main-btn-grad-dark-color), var(--main-btn-grad-light-color));
+}  
+
+/* ************************* ImageStamp Component ************************* */
+
+.ImageStamp__div {
+	display: flex;
+	height: 300px;
+    justify-content: center;
+    align-items: center;
+	overflow: hidden;
+	margin: 5px 0;
+}
+
+.ImageStamp_image {
+	object-fit: cover;
+   	max-width: 200px; 
+   	max-height: 200px;
+}
+
+.ImageStamp__button {
+	display: inline-block;
+}
+
+.ImageStamp__button input[type="file"] {
+    display: none;
+}
+
+/* ************************* BrushSize Component ************************* */
+
+.BrushSize__input {
+	font-size: 12px;
+	width: 100%;
+}
+
+/* ************************* BrushColor Component ************************* */
+
+.BrushColor__input {
+	width: 75px;
+	height: 50px;
+}
+
+
