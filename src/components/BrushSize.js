@@ -5,7 +5,7 @@ export default function BrushSize(props) {
 	return (
 		<input
 			type="number"
-			className="number-input"
+			className="BrushSize__input"
 			defaultValue={brush_size}
 			onChange={ (e) => {
 				action(e.target.value)

@@ -4,29 +4,32 @@ import { BRUSH, STAMP, ERASER } from "../constants/Tools";
 export default function ToolSelector(props) {
 	const { action, tool } = props;
 	return (
-		<div>
+		<div className="ToolSelector__container">
 			<div className="radio">
 				<input type="radio" name="tool" id="brush-select"
-					value={BRUSH} 
+					value={BRUSH}
 					checked={tool === BRUSH} 
 					onChange={ (e) => { action(e.target.value) } } />
-				<label htmlFor="brush-select">Brush</label>
+				<label htmlFor="brush-select" 
+				className='ToolSelector__label'>Brush</label>
 			</div>
 
 			<div className="radio">
 				<input type="radio" name="tool" id="stamp-select"
-					value={STAMP} 
+					value={STAMP}
 					checked={tool === STAMP} 
 					onChange={ (e) => { action(e.target.value) } } />
-				<label htmlFor="stamp-select">Stamp</label>
+				<label htmlFor="stamp-select"
+				className='ToolSelector__label'>Stamp</label>
 			</div>
 
 			<div className="radio">
 				<input type="radio" name="tool" id="eraser-select"
-					value={ERASER} 
+					value={ERASER}
 					checked={tool === ERASER}
 					onChange={ (e) => { action(e.target.value) } } />
-				<label htmlFor="eraser-select">Eraser</label>
+				<label htmlFor="eraser-select"
+				className='ToolSelector__label'>Eraser</label>
 			</div>
 		</div>
 	);

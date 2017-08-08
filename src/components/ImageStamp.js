@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 
 export default function ImageStamp(props) {
 	const { action, image } = props;
@@ -16,16 +16,35 @@ export default function ImageStamp(props) {
 
 		
 	}
+
+	let image_el;
+
+	if (image !== "") {
+		image_el = (
+			<img alt="stamp preview" src={image} className="ImageStamp_image"/>
+		)
+	}
 	return (
 		<div>
-			<input
-			type="file"
-			defaultValue={image}
-			onChange={ (e) => {
-				handleImageSubmit(e)
-			}}
+			<label htmlFor="upload-image" className="ImageStamp__button">
+				Upload Image
+				<input
+				type="file"
+				id="upload-image"
+				defaultValue={image}
+				onChange={ (e) => {
+					handleImageSubmit(e)
+				}}
 			/>
-			<img className='image_stamp_preview' alt="stamp preview" src={image} />
+			</label>
+			<div className="ImageStamp__div">
+				{image_el}
+			</div>
 		</div>
 	)
 }
+
+ImageStamp.propTypes = {
+				image: PropTypes.string.isRequired,
+				action: PropTypes.func.isRequired
+};

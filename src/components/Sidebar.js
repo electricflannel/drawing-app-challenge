@@ -36,7 +36,7 @@ export default class Sidebar extends Component {
 				/>
 				</section>
 
-				<section className="section">
+				<section className="section image-stamp">
 				<h3 className="section__heading">Image Stamp</h3>
 				<ImageStamp 
 					image={image}

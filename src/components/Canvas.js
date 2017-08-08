@@ -43,11 +43,6 @@ export default class Canvas extends Component {
 		}
 	}
 
-	convertDataURIToBinaryFetch(dataURI) {
-		return fetch(dataURI)
-			.then((res) => res.blob());
-	}
-
 	getCanvasState() {
 		// NOTE: Both of these work, there is an issue with being able to right
 		// click the exported image and "Save image as"
@@ -108,10 +103,10 @@ export default class Canvas extends Component {
 			// Had to add event.persist to prevent this error
 			event.persist()
 			let img = new Image();
-
-			//TODO: correct for image stamp at top corner
+			
+			
 			img.onload = () => {
-				ctx.drawImage(img, this.getX(event) - 75, this.getY(event) - ((150 * img.height / img.width) / 2), 150, 150 * img.height / img.width)
+				ctx.drawImage(img, this.getX(event) - 125, this.getY(event) - ((250 * img.height / img.width) / 2), 250, 250 * img.height / img.width)
 			}
 			img.src = this.props.tools.image
 			img.className = "image-stamp"
@@ -158,6 +153,10 @@ export default class Canvas extends Component {
 
 		if(this.props.canvas.save_canvas) {
 			this.getCanvasState()
+			// NOTE: is it bad practice to set state in render,
+			// this is a bandaid. Ideal solution would be to check and set saveCanvas()
+			// to false with every state change
+			this.props.actions.saveCanvas(false)
 		}
 
 		
@@ -174,5 +173,7 @@ export default class Canvas extends Component {
 }
 
 Canvas.propTypes = {
-	tools: PropTypes.object.isRequired
+	tools: PropTypes.object.isRequired,
+	canvas: PropTypes.object.isRequired,
+	actions: PropTypes.object.isRequired
 }

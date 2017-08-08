@@ -9,8 +9,7 @@ export default function canvas(state = initialState, action) {
     switch(action.type) {
         case RESET_CANVAS:
             return Object.assign({}, state, {
-                clear_canvas: action.bool,
-                canvas_state: ""
+                clear_canvas: action.bool
             })
         case SAVE_CANVAS:
             return Object.assign({}, state, {

@@ -17,3 +17,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
 
 http://eugeneware.com/software-development/converting-base64-datauri-strings-into-blobs-or-typed-array
 
+## Notes:
+
+The Save image as works on Mozilla Firefox.  Chrome does not let you "Save image as"
+

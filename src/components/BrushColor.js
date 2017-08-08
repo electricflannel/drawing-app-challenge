@@ -5,6 +5,7 @@ export default function BrushSize(props) {
 	return (
 		<input
 			type="color"
+			className="BrushColor__input"
 			defaultValue={brush_color}
 			onChange={ (e) => {
 				action(e.target.value)
